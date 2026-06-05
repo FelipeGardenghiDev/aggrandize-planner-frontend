@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import type { Member, TaskStatus, WorkloadStatus } from '@/lib/types';
+import type { HealthStatus, Member, TaskStatus, WorkloadStatus } from '@/lib/types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -68,6 +68,19 @@ export function formatAvailabilityStatus(status: Member['availability']) {
       return 'Ocupado';
     case 'Blocked':
       return 'Bloqueado';
+    default:
+      return status;
+  }
+}
+
+export function formatHealthStatus(status: HealthStatus) {
+  switch (status) {
+    case 'On track':
+      return 'No prazo';
+    case 'At risk':
+      return 'Em risco';
+    case 'Needs attention':
+      return 'Precisa de atenção';
     default:
       return status;
   }

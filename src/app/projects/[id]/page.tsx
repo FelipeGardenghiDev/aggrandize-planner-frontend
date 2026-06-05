@@ -30,6 +30,7 @@ import { addTaskReport, getProject, updateTaskStatus, type Project } from '@/lib
 import {
   formatAvailabilityStatus,
   formatDate,
+  formatHealthStatus,
   formatLongDate,
   formatTaskStatus,
   formatWorkloadStatus,
@@ -196,7 +197,7 @@ export default function ProjectDetailPage() {
                         : 'danger'
                   }
                 >
-                  {project.health}
+                  {formatHealthStatus(project.health)}
                 </Badge>
               </div>
               <div className="space-y-2">

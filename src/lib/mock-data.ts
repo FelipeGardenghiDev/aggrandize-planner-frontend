@@ -15,7 +15,7 @@ export const seedProjects: Project[] = [
     description:
       'Refresh completo da experiência do produto com foco em clareza operacional, onboarding e comunicação de valor para times de serviços.',
     manager: 'Helena Costa',
-    activeSprint: 'Sprint 08 · Product refresh',
+    activeSprint: 'Sprint 08 · Atualização do produto',
     health: 'On track',
     expectedEndDate: addDays(18),
     goals: [
@@ -100,7 +100,7 @@ export const seedProjects: Project[] = [
         roleRequired: 'Frontend Engineer',
         assigneeId: 'member-livia',
         dueDate: addDays(3),
-        tags: ['Dashboard', 'Metrics'],
+        tags: ['Dashboard', 'Métricas'],
         reports: [],
       },
       {
@@ -113,7 +113,7 @@ export const seedProjects: Project[] = [
         priority: 'Medium',
         roleRequired: 'Frontend Engineer',
         dueDate: addDays(6),
-        tags: ['Project Detail'],
+        tags: ['Detalhe do projeto'],
         reports: [],
       },
       {
@@ -154,14 +154,14 @@ export const seedProjects: Project[] = [
     description:
       'Workspace para centralizar playbooks, responsáveis e sinais de risco no onboarding de novos clientes enterprise.',
     manager: 'Paulo Mendes',
-    activeSprint: 'Sprint 05 · Enablement',
+    activeSprint: 'Sprint 05 · Capacitação',
     health: 'At risk',
     expectedEndDate: addDays(24),
     goals: [
       'Padronizar checklist de kickoff.',
       'Reduzir tempo para primeira entrega do time de implantação.',
     ],
-    tags: ['Operations', 'Enablement'],
+    tags: ['Operações', 'Capacitação'],
     metrics: {
       velocity: 16,
       blocked: 2,
@@ -219,7 +219,7 @@ export const seedProjects: Project[] = [
         roleRequired: 'Operations Lead',
         assigneeId: 'member-paulo',
         dueDate: addDays(4),
-        tags: ['Process'],
+        tags: ['Processo'],
         reports: [],
       },
       {
@@ -232,7 +232,7 @@ export const seedProjects: Project[] = [
         priority: 'Medium',
         roleRequired: 'Operations Lead',
         dueDate: addDays(8),
-        tags: ['Documentation'],
+        tags: ['Documentação'],
         reports: [],
       },
     ],
@@ -259,7 +259,7 @@ export const seedProjects: Project[] = [
       'Estruturar prompts e saídas com contexto confiável.',
       'Testar visão executiva semanal para managers.',
     ],
-    tags: ['AI', 'Internal Tools'],
+    tags: ['AI', 'Ferramentas internas'],
     metrics: {
       velocity: 9,
       blocked: 3,
@@ -303,7 +303,7 @@ export const seedProjects: Project[] = [
         roleRequired: 'Full Stack Engineer',
         assigneeId: 'member-igor',
         dueDate: addDays(7),
-        tags: ['AI', 'Prompt'],
+        tags: ['AI', 'Prompts'],
         reports: [],
       },
       {
@@ -317,7 +317,7 @@ export const seedProjects: Project[] = [
         roleRequired: 'Innovation Lead',
         assigneeId: 'member-renata',
         dueDate: addDays(5),
-        tags: ['AI', 'Governance'],
+        tags: ['AI', 'Governança'],
         reports: [],
       },
       {

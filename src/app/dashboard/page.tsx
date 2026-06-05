@@ -22,7 +22,7 @@ import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { getDashboardSnapshot, type ProjectSummary } from '@/lib/api';
 import { useAppStore } from '@/lib/store';
-import { cn, formatDate, formatPercent } from '@/lib/utils';
+import { cn, formatDate, formatHealthStatus, formatPercent } from '@/lib/utils';
 
 export default function DashboardPage() {
   const [projects, setProjects] = useState<ProjectSummary[]>([]);
@@ -200,7 +200,7 @@ export default function DashboardPage() {
                       <p className="mt-1 text-sm text-slate-600">{highestRiskProject.description}</p>
                     </div>
                     <Badge variant={healthVariant(highestRiskProject.health)}>
-                      {highestRiskProject.health}
+                      {formatHealthStatus(highestRiskProject.health)}
                     </Badge>
                   </div>
                   <div className="mt-4 grid gap-3 sm:grid-cols-3">
@@ -209,7 +209,7 @@ export default function DashboardPage() {
                       <p className="mt-1 text-lg font-semibold text-slate-950">{highestRiskProject.teamSize}</p>
                     </div>
                     <div className="rounded-2xl bg-[rgba(var(--brand-magenta),0.05)] p-3">
-                      <p className="text-xs uppercase tracking-wide text-[rgb(var(--brand-magenta))]">Entrega alvo</p>
+                      <p className="text-xs uppercase tracking-wide text-[rgb(var(--brand-magenta))]">Data de entrega</p>
                       <p className="mt-1 text-sm font-semibold text-slate-950">
                         {formatDate(highestRiskProject.expectedEndDate)}
                       </p>
@@ -275,7 +275,9 @@ export default function DashboardPage() {
                             {project.description}
                           </p>
                         </div>
-                        <Badge variant={healthVariant(project.health)}>{project.health}</Badge>
+                        <Badge variant={healthVariant(project.health)}>
+                          {formatHealthStatus(project.health)}
+                        </Badge>
                       </div>
 
                       <div className="space-y-2">
@@ -324,7 +326,7 @@ export default function DashboardPage() {
 
                       <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-sm text-slate-500">
                         <span>{project.activeSprint}</span>
-                        <span>Entrega alvo: {formatDate(project.expectedEndDate)}</span>
+                        <span>Data de entrega: {formatDate(project.expectedEndDate)}</span>
                       </div>
 
                       <div className="flex items-center text-sm font-medium text-slate-900">
