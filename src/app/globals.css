@@ -3,12 +3,96 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #0f172a;
-  --background: #ffffff;
-  --primary: #4f46e5;
+  --background: 249 247 252;
+  --foreground: 31 41 55;
+  --brand-violet: 88 22 125;
+  --brand-magenta: 231 0 83;
+  --brand-blue: 0 46 128;
+  --brand-teal: 21 173 154;
+  --brand-sky: 15 99 166;
+  --brand-plum: 156 29 129;
+  --surface: 255 255 255;
+  --surface-muted: 245 242 249;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+  font-family: 'Arial Next LT Pro', Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    font-family: 'Goldplay', 'Arial Next LT Pro', Arial, sans-serif;
+    color: rgb(var(--brand-blue));
+  }
+
+  ::selection {
+    background: rgb(var(--brand-magenta));
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: 'Goldplay', 'Arial Next LT Pro', Arial, sans-serif;
+  }
+
+  .font-secondary {
+    font-family: 'Aaux Prolight Italic OSF', Arial, sans-serif;
+    font-style: italic;
+  }
+
+  .brand-shell-bg {
+    background:
+      radial-gradient(circle at top, rgba(var(--brand-teal), 0.18), transparent 26%),
+      radial-gradient(circle at right top, rgba(var(--brand-magenta), 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 245, 251, 1) 52%, rgba(239, 245, 252, 1) 100%);
+  }
+
+  .brand-panel {
+    background: linear-gradient(135deg, rgb(var(--brand-violet)) 0%, rgb(var(--brand-blue)) 58%, rgb(var(--brand-teal)) 100%);
+    color: white;
+  }
+
+  .brand-panel-secondary {
+    background: linear-gradient(135deg, rgba(var(--brand-violet), 0.09) 0%, rgba(var(--brand-magenta), 0.08) 100%);
+  }
+
+  .brand-outline {
+    border-color: rgba(var(--brand-violet), 0.18);
+  }
+
+  .brand-text {
+    color: rgb(var(--brand-blue));
+  }
+
+  .brand-text-strong {
+    color: rgb(var(--brand-violet));
+  }
+
+  .brand-subtle {
+    color: rgba(var(--foreground), 0.75);
+  }
 }

@@ -3,16 +3,25 @@
 import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { CheckCircle2, LoaderCircle, TriangleAlert } from 'lucide-react';
+
+import { AppShell } from '@/components/app-shell';
+import { buttonVariants } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { verifyMagicLink } from '@/lib/api';
+import { useAppStore } from '@/lib/store';
+import { cn } from '@/lib/utils';
 
 function VerifyContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const token = searchParams.get('token');
+  const hasHydrated = useAppStore((state) => state.hasHydrated);
   const [status, setStatus] = useState<'loading' | 'ok' | 'error'>('loading');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
+    if (!hasHydrated) return;
     if (!token) {
       setStatus('error');
       setMessage('Token não encontrado na URL.');
@@ -20,10 +29,9 @@ function VerifyContent() {
     }
     verifyMagicLink(token)
       .then((data) => {
-        if (data?.access_token && typeof window !== 'undefined') {
-          localStorage.setItem('aggrandize_token', data.access_token);
+        if (data?.access_token) {
           setStatus('ok');
-          setTimeout(() => router.push('/dashboard'), 1500);
+          setTimeout(() => router.push('/dashboard'), 1000);
         } else {
           setStatus('error');
           setMessage('Resposta inválida do servidor.');
@@ -33,44 +41,48 @@ function VerifyContent() {
         setStatus('error');
         setMessage(err instanceof Error ? err.message : 'Falha ao verificar o link.');
       });
-  }, [token, router]);
+  }, [hasHydrated, token, router]);
 
   return (
-    <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center">
+    <Card className="mx-auto max-w-md">
+      <CardContent className="p-8 text-center">
       {status === 'loading' && (
         <>
-          <h1 className="text-2xl font-bold text-slate-900 mb-2">Verificando…</h1>
-          <p className="text-slate-600">Aguarde.</p>
+          <LoaderCircle className="mx-auto mb-4 h-10 w-10 animate-spin text-[rgb(var(--brand-blue))]" />
+          <h1 className="font-display mb-2 text-2xl font-bold text-[rgb(var(--brand-blue))]">Verificando link demo...</h1>
+          <p className="text-slate-600">Estamos preparando sua sessão local.</p>
         </>
       )}
       {status === 'ok' && (
         <>
-          <h1 className="text-2xl font-bold text-emerald-700 mb-2">Login realizado</h1>
-          <p className="text-slate-600">Redirecionando para o dashboard…</p>
+          <CheckCircle2 className="mx-auto mb-4 h-10 w-10 text-[rgb(var(--brand-teal))]" />
+          <h1 className="font-display mb-2 text-2xl font-bold text-[rgb(var(--brand-teal))]">Login concluído</h1>
+          <p className="text-slate-600">Redirecionando para o dashboard da Aggrandize...</p>
         </>
       )}
       {status === 'error' && (
         <>
-          <h1 className="text-2xl font-bold text-red-700 mb-2">Erro ao entrar</h1>
-          <p className="text-slate-600 mb-6">{message}</p>
-          <Link
-            href="/login"
-            className="inline-block px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700"
-          >
+          <TriangleAlert className="mx-auto mb-4 h-10 w-10 text-[rgb(var(--brand-magenta))]" />
+          <h1 className="font-display mb-2 text-2xl font-bold text-[rgb(var(--brand-magenta))]">Não foi possível entrar</h1>
+          <p className="mb-6 text-slate-600">{message}</p>
+          <Link href="/login" className={cn(buttonVariants({ variant: 'default' }))}>
             Tentar novamente
           </Link>
         </>
       )}
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 
 export default function VerifyAuthPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-      <Suspense fallback={<div className="text-slate-600">Carregando…</div>}>
-        <VerifyContent />
-      </Suspense>
-    </div>
+    <AppShell active="login">
+      <div className="flex min-h-[70vh] items-center justify-center px-4">
+        <Suspense fallback={<div className="text-slate-600">Carregando...</div>}>
+          <VerifyContent />
+        </Suspense>
+      </div>
+    </AppShell>
   );
 }

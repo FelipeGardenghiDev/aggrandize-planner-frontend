@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Aggrandize Planner',
-  description: 'Gestão de projetos com dependências e balanceamento de carga',
+  description: 'Planner front-end com dados mockados, foco em execução e visibilidade operacional.',
 };
 
 export default function RootLayout({
