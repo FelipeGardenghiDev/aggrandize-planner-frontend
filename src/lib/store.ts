@@ -30,6 +30,7 @@ type AppState = {
 };
 
 const tokenTtlMs = 15 * 60 * 1000;
+const storeVersion = 2;
 
 function calculateProjectSummary(project: Project): ProjectSummary {
   const totalTasks = project.tasks.length;
@@ -261,7 +262,18 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: 'aggrandize-planner-store',
+      version: storeVersion,
       storage: createJSONStorage(() => localStorage),
+      migrate: (persistedState) => {
+        const state = persistedState as Partial<AppState>;
+
+        return {
+          ...state,
+          projects: cloneSeedProjects(),
+          magicLinks: [],
+          projectSearch: '',
+        };
+      },
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);
       },

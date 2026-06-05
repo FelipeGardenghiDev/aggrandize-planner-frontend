@@ -131,10 +131,10 @@ export default function DashboardPage() {
               </div>
               <p className="text-sm text-slate-500">
                 Dica: pesquise por <strong>AI</strong>, <strong>Dashboard</strong> ou{' '}
-                <strong>Operations</strong>.
+                <strong>Operações</strong>.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['AI', 'Discovery', 'Operations'].map((term) => (
+                {['AI', 'Discovery', 'Operações'].map((term) => (
                   <button
                     key={term}
                     type="button"
