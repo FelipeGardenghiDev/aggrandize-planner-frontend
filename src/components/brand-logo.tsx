@@ -9,7 +9,7 @@ export function BrandLogo({ className }: { className?: string }) {
         <Boxes className="h-5 w-5" />
       </div>
       <div>
-        <p className="font-secondary text-xs uppercase tracking-[0.24em] text-[rgb(var(--brand-plum))]">
+        <p className="font-display text-xs font-semibold uppercase tracking-normal text-[rgb(var(--brand-plum))]">
           Aggrandize
         </p>
         <p className="font-display text-sm font-semibold text-[rgb(var(--brand-blue))]">Planner</p>

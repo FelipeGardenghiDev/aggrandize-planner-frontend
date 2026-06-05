@@ -9,7 +9,7 @@ export async function requestMagicLink(email: string) {
   await wait(700);
 
   if (email.toLowerCase().includes('blocked')) {
-    throw new Error('Este workspace demo bloqueia o domínio informado. Use um e-mail válido para continuar.');
+    throw new Error('Este ambiente de demonstração bloqueia o domínio informado. Use um e-mail válido para continuar.');
   }
 
   const link = useAppStore.getState().createMagicLink(email.toLowerCase());
@@ -48,7 +48,7 @@ export async function getProject(projectId: string) {
   const project = useAppStore.getState().projects.find((item) => item.id === projectId);
 
   if (!project) {
-    throw new Error('Projeto não encontrado neste workspace demo.');
+    throw new Error('Projeto não encontrado neste ambiente de demonstração.');
   }
 
   return project;
@@ -74,7 +74,7 @@ export async function updateTaskStatus(projectId: string, taskId: string, status
 export async function addTaskReport(projectId: string, taskId: string, text: string) {
   await wait(350);
   const session = useAppStore.getState().session;
-  const author = session?.name ?? 'Guest reviewer';
+  const author = session?.name ?? 'Revisor visitante';
   useAppStore.getState().addTaskReport(projectId, taskId, text, author);
   return getProject(projectId);
 }

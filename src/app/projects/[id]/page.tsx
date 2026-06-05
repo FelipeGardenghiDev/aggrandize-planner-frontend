@@ -31,7 +31,10 @@ import {
   formatAvailabilityStatus,
   formatDate,
   formatHealthStatus,
+  formatLevel,
   formatLongDate,
+  formatPriority,
+  formatRole,
   formatTaskStatus,
   formatWorkloadStatus,
 } from '@/lib/utils';
@@ -209,17 +212,17 @@ export default function ProjectDetailPage() {
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-400">Manager</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-400">Gestor</p>
                   <p className="mt-2 text-lg font-semibold text-white">{project.manager}</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-400">Deadline</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-400">Data de entrega</p>
                   <p className="mt-2 text-lg font-semibold text-white">
                     {formatLongDate(project.expectedEndDate)}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-400">Velocity</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-400">Velocidade</p>
                   <p className="mt-2 text-lg font-semibold text-white">{project.metrics.velocity} pts</p>
                 </div>
               </div>
@@ -335,7 +338,7 @@ export default function ProjectDetailPage() {
                           </div>
                           <div className="mt-4 space-y-2">
                             <div className="flex items-center justify-between text-xs text-slate-500">
-                              <span>{task.priority} priority</span>
+                              <span>{formatPriority(task.priority)}</span>
                               <span>{task.difficulty} pts</span>
                             </div>
                             <Progress value={task.progress} />
@@ -432,7 +435,7 @@ export default function ProjectDetailPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-slate-700">
-                      Update
+                      Atualização
                     </label>
                     <Textarea
                       id="message"
@@ -444,12 +447,12 @@ export default function ProjectDetailPage() {
                     )}
                   </div>
                   <div className="rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-                    Dica: registre updates curtos e objetivos, como se estivesse demonstrando um
+                    Dica: registre atualizações curtas e objetivas, como se estivesse demonstrando um
                     check-in de sprint para um gerente de produto.
                   </div>
                   <Button type="submit" disabled={isSubmitting}>
                     <MessageSquarePlus className="mr-2 h-4 w-4" />
-                    {isSubmitting ? 'Salvando...' : 'Registrar update'}
+                    {isSubmitting ? 'Salvando...' : 'Registrar atualização'}
                   </Button>
                 </form>
               </CardContent>
@@ -469,7 +472,7 @@ export default function ProjectDetailPage() {
                       <div>
                         <p className="font-medium text-slate-950">{member.name}</p>
                         <p className="text-sm text-slate-500">
-                          {member.role} · {member.level}
+                           {formatRole(member.role)} · {formatLevel(member.level)}
                         </p>
                       </div>
                       <Badge
@@ -539,7 +542,7 @@ export default function ProjectDetailPage() {
               </CardHeader>
               <CardContent className="grid gap-3">
                 <div className="rounded-2xl bg-slate-50 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-400">Throughput</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-400">Entregas no período</p>
                   <p className="mt-2 text-2xl font-semibold text-slate-950">
                     {project.metrics.throughput} entregas
                   </p>

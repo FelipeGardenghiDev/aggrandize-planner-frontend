@@ -11,9 +11,9 @@ function addDays(days: number) {
 export const seedProjects: Project[] = [
   {
     id: 'aggrandize-rebrand',
-    name: 'Aggrandize Platform Rebrand',
+    name: 'Rebranding da plataforma Aggrandize',
     description:
-      'Refresh completo da experiência do produto com foco em clareza operacional, onboarding e comunicação de valor para times de serviços.',
+      'Atualização completa da experiência do produto com foco em clareza operacional, onboarding e comunicação de valor para times de serviços.',
     manager: 'Helena Costa',
     activeSprint: 'Sprint 08 · Atualização do produto',
     health: 'On track',
@@ -71,7 +71,7 @@ export const seedProjects: Project[] = [
       {
         id: 'task-landing',
         title: 'Criar landing page orientada a valor',
-        description: 'Destacar benefícios, métricas e CTA para entrada no workspace.',
+        description: 'Destacar benefícios, métricas e CTA para entrada no ambiente.',
         status: 'done',
         difficulty: 3,
         progress: 100,
@@ -79,7 +79,7 @@ export const seedProjects: Project[] = [
         roleRequired: 'Frontend Engineer',
         assigneeId: 'member-livia',
         dueDate: addDays(1),
-        tags: ['Marketing', 'Landing'],
+        tags: ['Marketing', 'Página inicial'],
         reports: [
           {
             id: 'report-landing-1',
@@ -92,7 +92,7 @@ export const seedProjects: Project[] = [
       {
         id: 'task-dashboard',
         title: 'Montar dashboard executivo',
-        description: 'Cards de métricas, busca por projeto e snapshot de saúde operacional.',
+        description: 'Cards de métricas, busca por projeto e visão rápida da saúde operacional.',
         status: 'doing',
         difficulty: 5,
         progress: 72,
@@ -106,7 +106,7 @@ export const seedProjects: Project[] = [
       {
         id: 'task-detail',
         title: 'Detalhar visão do projeto',
-        description: 'Listar tarefas por status, equipe, riscos e registro rápido de updates.',
+        description: 'Listar tarefas por status, equipe, riscos e registro rápido de atualizações.',
         status: 'todo',
         difficulty: 5,
         progress: 0,
@@ -142,7 +142,7 @@ export const seedProjects: Project[] = [
       {
         id: 'activity-2',
         title: 'Dependência de design',
-        description: 'Faltam variantes finais de badge e navegação para concluir o project detail.',
+        description: 'Faltam variantes finais de badge e navegação para concluir o detalhe do projeto.',
         createdAt: addDays(-2),
         tone: 'warning',
       },
@@ -150,9 +150,9 @@ export const seedProjects: Project[] = [
   },
   {
     id: 'client-onboarding',
-    name: 'Client Onboarding Workspace',
+    name: 'Espaço de Onboarding de Clientes',
     description:
-      'Workspace para centralizar playbooks, responsáveis e sinais de risco no onboarding de novos clientes enterprise.',
+      'Espaço para centralizar guias, responsáveis e sinais de risco no onboarding de novos clientes empresariais.',
     manager: 'Paulo Mendes',
     activeSprint: 'Sprint 05 · Capacitação',
     health: 'At risk',
@@ -248,16 +248,16 @@ export const seedProjects: Project[] = [
   },
   {
     id: 'internal-ops-ai',
-    name: 'Internal Ops AI Assistant',
+    name: 'Assistente interno de AI para operações',
     description:
-      'Experimento para resumir updates operacionais e sugerir priorização semanal para gestores.',
+      'Experimento para resumir atualizações operacionais e sugerir priorização semanal para gestores.',
     manager: 'Renata Alves',
     activeSprint: 'Sprint 03 · Discovery',
     health: 'Needs attention',
     expectedEndDate: addDays(31),
     goals: [
       'Estruturar prompts e saídas com contexto confiável.',
-      'Testar visão executiva semanal para managers.',
+      'Testar visão executiva semanal para gestores.',
     ],
     tags: ['AI', 'Ferramentas internas'],
     metrics: {
@@ -322,7 +322,7 @@ export const seedProjects: Project[] = [
       },
       {
         id: 'task-readout',
-        title: 'Desenhar readout executivo',
+        title: 'Desenhar apresentação executiva',
         description: 'Criar narrativa visual simples para líderes acompanharem experimentos.',
         status: 'todo',
         difficulty: 3,

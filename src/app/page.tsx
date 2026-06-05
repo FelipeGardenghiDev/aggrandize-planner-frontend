@@ -17,8 +17,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 const highlights = [
-  'Workspace de demo com dados mockados persistidos no navegador',
-  'Fluxo de autenticação via magic link simulado',
+  'Ambiente de demonstração com dados mockados persistidos no navegador',
+  'Fluxo de autenticação via link mágico simulado',
   'Dashboard executivo e detalhe operacional por projeto',
 ];
 
@@ -68,7 +68,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/dashboard" className={cn(buttonVariants({ size: 'lg' }))}>
-                  Explorar workspace
+                  Explorar ambiente
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               <Link
@@ -93,7 +93,7 @@ export default function HomePage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-secondary text-sm uppercase tracking-[0.22em] text-white/70">
-                    Workspace snapshot
+                    Visão rápida do ambiente
                   </p>
                   <h2 className="font-display mt-2 text-2xl font-semibold text-white">
                     Visão operacional em um só lugar
@@ -120,7 +120,7 @@ export default function HomePage() {
 
               <div className="rounded-3xl border border-white/20 bg-white/10 p-5">
                 <p className="text-sm text-white/82">
-                  O workspace usa dados mockados persistidos no navegador, com interações reais de
+                  O ambiente usa dados mockados persistidos no navegador, com interações reais de
                   UI para demonstrar fluxo, validação e gerenciamento de estado.
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default function HomePage() {
           <Card className="brand-panel border-[rgba(var(--brand-violet),0.16)] text-white">
             <CardContent className="space-y-6 p-7">
               <div>
-                <p className="font-secondary text-sm uppercase tracking-[0.22em] text-white/70">Core routes</p>
+                <p className="font-secondary text-sm uppercase tracking-[0.22em] text-white/70">Rotas principais</p>
                 <h2 className="font-display mt-2 text-3xl font-semibold text-white">
                   Quatro rotas, uma experiência completa
                 </h2>
@@ -184,8 +184,8 @@ export default function HomePage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
                   ['/', 'Proposta de valor e posicionamento do produto'],
-                  ['/login', 'Formulário validado com magic link simulado'],
-                  ['/dashboard', 'Portfólio com busca, métricas e status'],
+                  ['/login', 'Formulário validado com link mágico simulado'],
+                  ['/dashboard', 'Dashboard com busca, métricas e status'],
                   ['/projects/[id]', 'Atualização de tarefas, equipe e atividade recente'],
                 ].map(([route, text]) => (
                   <div key={route} className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -196,7 +196,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link href="/dashboard" className={cn(buttonVariants({ size: 'lg' }))}>
-                  Ver dashboard
+                  Ver painel
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link

@@ -87,13 +87,13 @@ export default function DashboardPage() {
           <Card className="brand-panel border-[rgba(var(--brand-violet),0.16)] text-white">
             <CardContent className="p-6 sm:p-8">
               <Badge variant="info" className="mb-5 border-white/18 bg-white/10 text-white/90">
-                Workspace com dados locais
+                Ambiente com dados locais
               </Badge>
               <h1 className="font-display text-3xl font-semibold text-white sm:text-4xl">
-                {session ? `Olá, ${session.name.split(' ')[0]}.` : 'Workspace Aggrandize em modo preview.'}
+                {session ? `Olá, ${session.name.split(' ')[0]}.` : 'Aggrandize em modo de visualização.'}
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/80">
-                Explore um portfólio de projetos com dados persistidos no navegador, health checks
+                Explore um portfólio de projetos com dados persistidos no navegador, indicadores
                 visuais e interações locais prontas para mostrar domínio de estado e clareza
                 operacional.
               </p>
@@ -102,7 +102,7 @@ export default function DashboardPage() {
                   href="/login"
                   className={cn(buttonVariants({ variant: 'secondary' }))}
                 >
-                  {session ? 'Trocar usuário demo' : 'Ativar login demo'}
+                  {session ? 'Trocar usuário' : 'Ativar login'}
                 </Link>
                 <Button variant="ghost" className="bg-white/5 text-white hover:bg-white/10 hover:text-white">
                   <Sparkles className="mr-2 h-4 w-4" />
@@ -116,7 +116,7 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle>Encontrar projeto</CardTitle>
               <CardDescription>
-                Filtre por nome, tag ou problema que você quer apresentar na demo.
+                Filtre por nome, tag ou problema que você quer apresentar na demonstração.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -238,7 +238,7 @@ export default function DashboardPage() {
             <div>
               <h2 className="text-2xl font-semibold">Projetos priorizados</h2>
               <p className="mt-1 text-sm text-slate-500">
-                Abra um projeto para explorar tarefas, equipe e updates.
+                Abra um projeto para explorar tarefas, equipe e atualizações.
               </p>
             </div>
             <Badge variant="default">{filteredProjects.length} exibidos</Badge>
@@ -319,7 +319,7 @@ export default function DashboardPage() {
                           Narrativa rápida
                         </div>
                         <p className="mt-2 text-sm leading-6 text-slate-600">
-                          Manager: {project.manager}. Sprint atual: {project.activeSprint}. Ideal
+                          Gestor: {project.manager}. Sprint atual: {project.activeSprint}. Ideal
                           para mostrar leitura executiva e progressão do backlog.
                         </p>
                       </div>

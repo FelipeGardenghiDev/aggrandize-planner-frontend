@@ -43,6 +43,19 @@ export function formatTaskStatus(status: TaskStatus) {
   }
 }
 
+export function formatPriority(priority: 'Low' | 'Medium' | 'High') {
+  switch (priority) {
+    case 'Low':
+      return 'Baixa prioridade';
+    case 'Medium':
+      return 'Média prioridade';
+    case 'High':
+      return 'Alta prioridade';
+    default:
+      return priority;
+  }
+}
+
 export function formatWorkloadStatus(status: WorkloadStatus) {
   switch (status) {
     case 'Idle':
@@ -57,6 +70,42 @@ export function formatWorkloadStatus(status: WorkloadStatus) {
       return 'Crítico';
     default:
       return status;
+  }
+}
+
+export function formatLevel(level: Member['level']) {
+  switch (level) {
+    case 'Junior':
+      return 'Júnior';
+    case 'Mid':
+      return 'Pleno';
+    case 'Senior':
+      return 'Sênior';
+    case 'Lead':
+      return 'Líder';
+    default:
+      return level;
+  }
+}
+
+export function formatRole(role: string) {
+  switch (role) {
+    case 'Product Manager':
+      return 'Gerente de produto';
+    case 'Frontend Engineer':
+      return 'Engenheiro Frontend';
+    case 'Product Designer':
+      return 'Designer de produto';
+    case 'Operations Lead':
+      return 'Líder de operações';
+    case 'Customer Success':
+      return 'Sucesso do cliente';
+    case 'Innovation Lead':
+      return 'Líder de inovação';
+    case 'Full Stack Engineer':
+      return 'Engenheiro Full Stack';
+    default:
+      return role;
   }
 }
 

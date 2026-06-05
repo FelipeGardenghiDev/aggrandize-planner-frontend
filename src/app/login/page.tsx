@@ -61,10 +61,10 @@ export default function LoginPage() {
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <Card className="brand-panel border-[rgba(var(--brand-violet),0.16)] text-white">
           <CardHeader>
-            <CardTitle className="font-display text-3xl text-white">Login demo com Magic Link</CardTitle>
+            <CardTitle className="font-display text-3xl text-white">Login com link mágico</CardTitle>
             <CardDescription className="text-white/78">
               Simule um fluxo realista de autenticação sem depender de backend ou provedor de
-              e-mail. O token é persistido localmente só para o workspace da demo.
+              e-mail. O token é persistido localmente só para o ambiente da demonstração.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-5 text-sm text-white/80">
@@ -84,7 +84,7 @@ export default function LoginPage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p className="font-medium text-white">Perfis prontos para demo</p>
+              <p className="font-medium text-white">Perfis prontos para demonstração</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {[
                   'felipe@aggrandize.com',
@@ -107,9 +107,9 @@ export default function LoginPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Entrar no workspace</CardTitle>
+            <CardTitle>Entrar no ambiente</CardTitle>
             <CardDescription>
-              Informe seu e-mail para gerar um link demo. Nenhum envio real de e-mail é realizado.
+              Informe seu e-mail para gerar um link de acesso. Nenhum envio real de e-mail é realizado.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -119,9 +119,9 @@ export default function LoginPage() {
                   <div className="flex items-start gap-3">
                     <MailCheck className="mt-0.5 h-5 w-5 text-[rgb(var(--brand-teal))]" />
                     <div>
-                      <p className="font-medium text-[rgb(var(--brand-teal))]">Link demo criado com sucesso</p>
+                      <p className="font-medium text-[rgb(var(--brand-teal))]">Link de acesso criado com sucesso</p>
                       <p className="mt-1 text-sm text-slate-700">
-                        Workspace pronto para <strong>{sent.email}</strong>. O link expira em{' '}
+                        Acesso pronto para <strong>{sent.email}</strong>. O link expira em{' '}
                         {new Intl.DateTimeFormat('pt-BR', {
                           hour: '2-digit',
                           minute: '2-digit',
@@ -133,7 +133,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                  <p className="text-sm font-medium text-slate-900">Abrir magic link simulado</p>
+                  <p className="text-sm font-medium text-slate-900">Abrir link mágico simulado</p>
                   <p className="mt-2 text-sm text-slate-600">
                     Use o link abaixo para concluir a autenticação exatamente como faria em um
                     fluxo real.
@@ -145,7 +145,7 @@ export default function LoginPage() {
 
                 <div className="flex flex-wrap gap-3">
                   <Link href={sent.previewUrl} className={cn(buttonVariants({ variant: 'default' }))}>
-                    Abrir link demo
+                    Abrir link
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                   <Button
@@ -196,13 +196,13 @@ export default function LoginPage() {
 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   <LinkIcon className="mr-2 h-4 w-4" />
-                  {isSubmitting ? 'Gerando link...' : 'Gerar magic link demo'}
+                  {isSubmitting ? 'Gerando link...' : 'Gerar link mágico'}
                 </Button>
 
                 <p className="text-center text-sm text-slate-500">
                   Não quer simular login agora?{' '}
                   <Link href="/dashboard" className="font-medium text-[rgb(var(--brand-violet))] underline">
-                    Entrar em modo preview
+                    Entrar em modo de visualização
                   </Link>
                   .
                 </p>

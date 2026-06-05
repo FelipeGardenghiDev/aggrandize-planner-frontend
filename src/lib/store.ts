@@ -30,7 +30,7 @@ type AppState = {
 };
 
 const tokenTtlMs = 15 * 60 * 1000;
-const storeVersion = 2;
+const storeVersion = 3;
 
 function calculateProjectSummary(project: Project): ProjectSummary {
   const totalTasks = project.tasks.length;
@@ -94,14 +94,14 @@ function createSessionFromEmail(email: string): SessionUser {
 
   return {
     id: `user_${rawName.toLowerCase()}`,
-    name: name || 'Guest User',
+    name: name || 'Usuário visitante',
     email,
     role:
       normalizedEmail === 'felipe@aggrandize.com'
         ? 'Front-End'
         : email.endsWith('@aggrandize.com')
-          ? 'Product Ops'
-          : 'Guest Reviewer',
+          ? 'Operações de produto'
+          : 'Revisor visitante',
     company: 'Aggrandize',
     accessToken: createToken(),
   };
@@ -248,7 +248,7 @@ export const useAppStore = create<AppState>()(
                 ? [
                       {
                         id: createToken(),
-                        title: 'Update registrado',
+                        title: 'Atualização registrada',
                         description: `${author} adicionou uma observação em ${task.title}.`,
                         createdAt: new Date().toISOString(),
                         tone: 'success' as const,

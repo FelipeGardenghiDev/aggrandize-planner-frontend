@@ -49,7 +49,7 @@ function VerifyContent() {
       {status === 'loading' && (
         <>
           <LoaderCircle className="mx-auto mb-4 h-10 w-10 animate-spin text-[rgb(var(--brand-blue))]" />
-          <h1 className="font-display mb-2 text-2xl font-bold text-[rgb(var(--brand-blue))]">Verificando link demo...</h1>
+          <h1 className="font-display mb-2 text-2xl font-bold text-[rgb(var(--brand-blue))]">Verificando link de acesso...</h1>
           <p className="text-slate-600">Estamos preparando sua sessão local.</p>
         </>
       )}
